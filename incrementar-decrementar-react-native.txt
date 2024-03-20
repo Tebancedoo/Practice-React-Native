@@ -1,0 +1,46 @@
+
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import  React  from 'react';
+
+
+
+export default function App() {
+
+  const [count, setCount] = React.useState(0);
+
+  function incrementar() {
+    setCount(count + 1);
+  }
+
+  function decrementar() {
+    if (count <= 0){
+      alert("Esta accion no se puede realizar");
+    }else{
+      setCount(count - 1);
+    }
+  }
+
+  return (
+
+    <View style={styles.container}> 
+
+        <Text> {count}</Text>
+        <Button title="Incrementar" onPress={incrementar} />
+        <Button title="Decrementar" onPress={decrementar} />
+    </View>
+
+    
+
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap:'10',
+  },
+});
+
