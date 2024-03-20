@@ -1,0 +1,67 @@
+
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import  React  from 'react';
+
+
+
+export default function App() {
+
+  const [numero1, setnum1] = React.useState('');
+  const [numero2, setnum2] = React.useState('');
+  const [resultado, setres] = React.useState(null);
+
+  function sumar() {
+    alert ("sumar");
+    setres(parseFloat(numero1) + parseFloat(numero2));
+  }
+
+  function restar(){
+    alert("restar");
+    setres(parseFloat(numero1) - parseFloat(numero2));
+  }
+
+  function multiplicar (){
+    alert("multiplicar");
+    setres(parseFloat(numero1) * parseFloat(numero2));
+  }
+
+  function dividir(){
+    alert("dividir");
+    setres(parseFloat(numero1) / parseFloat(numero2));
+  }
+
+  return (
+    <View style={styles.container}>
+    <TextInput placeholder="Ingresé el primer numero "keyboardType="numeric" onChangeText={text => setnum1(text)} style={styles.input} />
+
+    <TextInput placeholder="Ingresé el segundo numero" keyboardType="numeric" onChangeText={text => setnum2(text)} style={styles.input} />
+
+      <Button title="Sumar" onPress={sumar} />
+      <Button title="Restar" onPress={restar} />
+      <Button title="Multiplicar" onPress={multiplicar} />
+      <Button title="Dividir" onPress={dividir} />
+
+      <Text> Resultado: {resultado}</Text>
+
+    </View>
+
+    
+
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+});
+
