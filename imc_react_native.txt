@@ -1,0 +1,64 @@
+
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import  React  from 'react';
+
+
+
+export default function App() {
+
+  const [numero1, setnum1] = React.useState('');
+  const [numero2, setnum2] = React.useState('');
+
+
+  function C_imc (){
+    res = Math.pow(parseFloat(numero2), 2 );
+    resultado = (parseFloat(numero1) / res);
+
+alert(resultado)
+  if (resultado <= 18.5 && resultado > 0){
+    alert("Usted esta bajo de peso")
+
+    }
+  if (resultado > 18.5 && resultado <= 24.9 ){
+    alert("Usted tiene un peso normal")
+  }
+  if (resultado > 25 && resultado <= 29.9 ){
+    alert("Usted presenta sobrepeso")
+  }
+  if (resultado > 30 ){
+    alert("Usted presenta obesidad")
+  }
+  }
+
+
+
+
+  return (
+    <View style={styles.container}>
+    <TextInput placeholder="Ingresé su peso en kilos "keyboardType="numeric" onChangeText={text => setnum1(text)} style={styles.input} />
+
+    <TextInput placeholder="Ingresé su algura en metros" keyboardType="numeric" onChangeText={text => setnum2(text)} style={styles.input} />
+
+      <Button title="Calcular IMC" onPress={C_imc} />
+
+    </View>
+
+    
+
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+});
